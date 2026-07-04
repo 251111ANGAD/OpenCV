@@ -1,9 +1,10 @@
 import cv2
 import os
 
+name = input("Enter your name: ")
 cascade = cv2.CascadeClassifier("L9\\face_detector.xml")
 folder = "L9\\images"
-subfolder = "L9\\images\\private"
+subfolder = f"L9\\images\\{name}"
 path = os.path.join(folder, subfolder)
 
 if not os.path.exists(path):
@@ -11,7 +12,7 @@ if not os.path.exists(path):
 
 width, height = 640, 480
 face_cascade = cv2.CascadeClassifier("L9\\face_detector.xml")
-cam = cv2.VideoCapture()
+cam = cv2.VideoCapture(0)
  
 count = 1
 while count < 30:
